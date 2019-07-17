@@ -1,8 +1,21 @@
-# snippets-client-abuse
-This repository is for saving pinned snippets from the [#client-abuse](https://screeps.slack.com/messages/client-abuse/) slack channel for posterity.
+# screeps-snippets
+This repository is for saving pinned snippets from the [#client-abuse](https://screeps.slack.com/messages/client-abuse/), [#help](https://screeps.slack.com/messages/help/), [#logging](https://screeps.slack.com/messages/logging/), [#share-thy-code](https://screeps.slack.com/messages/share-thy-code/) slack channels and any other important slack snippets from elsewhere for posterity.
 
 If you want to contribute, please PR your additions.
 
-[LoAN tampermonkey inject for any client](https://github.com/screepers/snippets-client-abuse/blob/master/snippets/LoAN_tampermonkey_inject_for_any_client.js) submitted by SemperRabbit, Jan 20, 2017
+The folder structure is broken into 5 primary categories:
 
-[toString()s with link that highlights object in the client](https://github.com/screepers/snippets-client-abuse/blob/master/snippets/toString()s_with_link_that_highlights_object_in_the_client.js) submitted by SemperRabbit, Jan 14th, 2017
+- client-abuse
+- classes
+- globals
+- logging
+- prototypes
+
+Each category is further divided into various languages
+
+- JavaScript
+- TypeScript
+
+Other languages are welcome (e.g. kotalin) if people want to share their code. Simply throw the file in a new language folder in the primary category.
+
+There will be a voting system installed for automatically merging PRs once this is further established. More details to follow...
