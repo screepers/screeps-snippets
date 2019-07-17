@@ -3,12 +3,13 @@ This repository is for saving pinned snippets from the [#client-abuse](https://s
 
 If you want to contribute, please PR your additions.
 
-The folder structure is broken into 5 primary categories:
+The folder structure is broken into 6 primary categories:
 
 - client-abuse
 - classes
 - globals
 - logging
+- misc
 - prototypes
 
 Each category is further divided into various languages
