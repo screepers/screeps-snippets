@@ -21,9 +21,10 @@ Other languages are welcome (e.g. kotalin) if people want to share their code. S
 
 There will be a voting system installed for automatically merging PRs once this is further established. More details to follow...
 
-##Index of all current snippets
+## Index of all current snippets
 
-###classes
+### classes
+  
 | folder | name |author |Description                    |
 | ----- |---------| -------|----------------------- |
 |JS| bitSet.js | warinternal| bit set class|
@@ -32,7 +33,8 @@ There will be a voting system installed for automatically merging PRs once this 
 |JS|Es6LRUMapWithSizeAndTtl.js | warinternal| A cache that can exhibit both least recently used (LRU) and max time to live (TTL) eviction policies.|
 |JS|WorldPosition.js| warinternal| Uniform screeps world position with E0S0 as origin.|
 
-###client-abuse
+### client-abuse
+  
 | folder | name | author |Description                    |
 | ----- |---------| -------|----------------------- |
 |JS|inject_script_tag.js|semperrabbit| injects script tag|
@@ -44,7 +46,8 @@ There will be a voting system installed for automatically merging PRs once this 
 |JS|util.inject.RoomViewNotifier.js|semperrabbit| adds currently viewed room to memory |
 |JS|util.inject.TEMPLATE.js|semperrabbit|template for injections|
 
-###globals
+### globals
+  
 | folder | name |author |Description                    |
 | ----- |---------| -------|----------------------- |
 |JS |adjust_CPU_limit_based_on_bucket_levels.js|semperrabbit|Adjust your CPU limit per tick based on current and target bucket levels|
@@ -68,12 +71,14 @@ There will be a voting system installed for automatically merging PRs once this 
 ||upkeep_costs.js|warinternal| constants for upkeep of decaying structures|
 
 
-###logging
+### logging
+  
 | folder | name |author |Description                    |
 | ----- |---------| -------|----------------------- |
 | - | - | - | - |
 
-###misc
+### misc
+  
 | folder | name |author |Description                    |
 | ----- |---------| -------|----------------------- |
 |JS| actually commented evil tower code.js| daboross| lodash chain tower code|
@@ -110,7 +115,8 @@ There will be a voting system installed for automatically merging PRs once this 
 ||migrate room to sim.md|semperrabbit|how to migrate room to sim|
 ||screeps body calculator.md|nitroevil|link to creep calculator|
 
-###prototypes
+### prototypes
+  
 | folder | name |author |Description                    |
 | ----- |---------| -------|----------------------- |
 |JS/Creep|Creep action error handler.js|warinternal| log creep action error codes|
