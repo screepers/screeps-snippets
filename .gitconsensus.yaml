@@ -12,7 +12,7 @@ extra_labels: true
 pull_requests:
 
   # At least ten people should sign off on any pull request.
-  quorum: 12
+  quorum: 10
 
   # Required percentage of "yes" votes (ignoring abstentions). It's a good idea to give "no" votes more power.
   threshold: 0.74
