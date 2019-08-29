@@ -16,6 +16,7 @@ Each category is further divided into various languages
 
 - JavaScript
 - TypeScript
+- Kotlin (only some categories)
 
 Other languages are welcome (e.g. kotalin) if people want to share their code. Simply throw the file in a new language folder in the primary category.
 
@@ -114,7 +115,7 @@ There will be a voting system installed for automatically merging PRs once this 
 |TS|Typescript roomScan.ts|crzytrane|room scanner?|
 ||migrate room to sim.md|semperrabbit|how to migrate room to sim|
 ||screeps body calculator.md|nitroevil|link to creep calculator|
-
+|KT|DistanceTransform|Vipo|Algoritm for finding open areas in rooms|
 ### prototypes
   
 | folder | name |author |Description                    |
