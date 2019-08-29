@@ -116,6 +116,7 @@ There will be a voting system installed for automatically merging PRs once this 
 ||migrate room to sim.md|semperrabbit|how to migrate room to sim|
 ||screeps body calculator.md|nitroevil|link to creep calculator|
 |KT|DistanceTransform|Vipo|Algoritm for finding open areas in rooms|
+
 ### prototypes
   
 | folder | name |author |Description                    |
