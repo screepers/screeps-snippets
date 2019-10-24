@@ -7,6 +7,7 @@
  * adapted (for Typescript by Chobobobo , is it somewhere?)
  * some readability added by Chobobobo @typescript was included here
  * (15Aug2019) Updated Game.map.getTerrainAt to Game.map.getRoomTerrain method -Shibdib
+ * (23Oct2019) Will now account for tunnels -Shibdib
  */
 
 const UNWALKABLE = -1;
@@ -27,7 +28,8 @@ function room_2d_array(roomname,bounds={x1:0,y1:0,x2:49,y2:49}) {
     for (;i<=imax;i++) {
         j=bounds.y1;
         for(;j<=jmax;j++) {
-            if (terrain.get(i,j) !== TERRAIN_MASK_WALL){
+            let pos = new RoomPosition(i, j, roomname);
+            if (terrain.get(i, j) !== TERRAIN_MASK_WALL || (pos && _.filter(pos.lookFor(LOOK_STRUCTURES), (s) => s.structureType === STRUCTURE_ROAD)[0])) {
                 room_2d[i][j]=NORMAL; // mark unwalkable
                 if (i===bounds.x1 || j===bounds.y1 || i===bounds.x2 || j===bounds.y2)
                     room_2d[i][j]=TO_EXIT; // Sink Tiles mark from given bounds
