@@ -10,13 +10,27 @@ global.RES_COLORS = {
 	Z: '#D9B478',
 	X: '#F26D6F',
 	energy: '#FEE476',
+	battery: '#FEE476',
 	power: '#F1243A',
 	
+	reductant: '#989898',
+	oxidant: '#989898',
+	utrium_bar: '#48C5E5',
+	lemergium_bar: '#24D490',
+	keanium_bar: '#9269EC',
+	zynthium_bar: '#D9B478',
+	purifier: '#F26D6F',
+
 	OH: '#B4B4B4',
 	ZK: '#B4B4B4',
 	UL: '#B4B4B4',
 	G: '#FFFFFF',
 	
+	ghodium_melt: '#FFFFFF',
+	composite: '#FFFFFF',
+	crystal: '#FFFFFF',
+	liquid: '#FFFFFF',
+
 	UH: '#50D7F9',
 	UO: '#50D7F9',
 	KH: '#A071FF',
@@ -50,4 +64,37 @@ global.RES_COLORS = {
 	XGH2O: '#FFFFFF',
 	XGHO2: '#FFFFFF'
 	
+	XGHO2: '#FFFFFF',
+
+	metal: '#956F5C',
+	alloy: '#956F5C',
+	tube: '#956F5C',
+	fixtures: '#956F5C',
+	frame: '#956F5C',
+	hydraulics: '#956F5C',
+	machine: '#956F5C',
+
+	biomass: '#84B012',
+	cell: '#84B012',
+	phlegm: '#84B012',
+	tissue: '#84B012',
+	muscle: '#84B012',
+	organoid: '#84B012',
+	organism: '#84B012',
+
+	silicon: '#4DA7E5',
+	wire: '#4DA7E5',
+	switch: '#4DA7E5',
+	transistor: '#4DA7E5',
+	microchip: '#4DA7E5',
+	circuit: '#4DA7E5',
+	device: '#4DA7E5',
+
+	mist: '#DA6BF5',
+	condensate: '#DA6BF5',
+	concentrate: '#DA6BF5',
+	extract: '#DA6BF5',
+	spirit: '#DA6BF5',
+	emanation: '#DA6BF5',
+	essence: '#DA6BF5'
 }
