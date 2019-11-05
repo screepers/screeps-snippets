@@ -45,7 +45,7 @@
 // check for controller, progress and safe mode
     var room = Game.rooms[rNames[0]];
     if(!room.controller || !room.controller.my || room.controller.level !== 1 || room.controller.progress ||
-       !room.controller.safeMode || room.controller.safeMode !== SAFE_MODE_DURATION-1)
+       !room.controller.safeMode || room.controller.safeMode <= SAFE_MODE_DURATION-1)
         return false;
 
 // check for 1 spawn
