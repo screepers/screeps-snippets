@@ -165,8 +165,8 @@ class WorldPosition
 		if(!_.inRange(y, 0, 50)) throw new RangeError('y value ' + y + ' not in range');
 		if(roomName == 'sim') throw new RangeError('Sim room does not have world position');
 		let [name,h,wx,v,wy] = roomName.match(/^([WE])([0-9]+)([NS])([0-9]+)$/);
-		if(h == 'W') x = ~x;
-		if(v == 'N') y = ~y;				
+		if (h === 'W') {x = ~(49-x); wx = ~wx + 1; }
+	        if (v === 'N') {y = ~(49-y); wy = ~wy + 1; }
 		return new WorldPosition( (50*wx)+x, (50*wy)+y );
 	}
 		
