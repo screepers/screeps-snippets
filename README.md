@@ -88,7 +88,7 @@ There will be a voting system installed for automatically merging PRs once this 
 |JS| [colors.js](/src/misc/JavaScript/colors.js) |dissi| visualize percentage with colors|
 |JS| [get room type without visibility(but regex^^).js](/src/misc/JavaScript/get%20room%20type%20without%20visibility%20(but%20regex^^).js) |enrico|get room type without visibility|
 |JS| [Global Tracking.js](/src/misc/JavaScript/Global%20Tracking.js) |ags131|track global age|
-|JS| [how to delete the memory of dead creeps (in%20memoriam!).js](/src/misc/JavaScript/how%20to%20delete%20the%20memory%20of%20dead%20creeps%20(in%20memoriam!).js) |artritus|remove memory of dead creeps|
+|JS| [how to delete the memory of dead creeps (in memoriam!).js](/src/misc/JavaScript/how%20to%20delete%20the%20memory%20of%20dead%20creeps%20(in%20memoriam!).js) |artritus|remove memory of dead creeps|
 |JS| [Memory Cache.js](/src/misc/JavaScript/Memory%20Cache.js) |postcrafter|memory hack|
 |JS| [minCutWallRampartsPlacement.js](/src/misc/JavaScript/minCutWallRampartsPlacement.js) |saruss|calculate minCut in a room|
 |JS| [Minimal Starting AI.js](/src/misc/JavaScript/Minimal%20Starting%20AI.js) |WolfWings|example bot starting point|
@@ -131,14 +131,14 @@ There will be a voting system installed for automatically merging PRs once this 
 |JS/Creep| [util.fun.singing.js](/src/prototypes/JavaScript/Creep/util.fun.singing.js) |semperrabbit|creeps singing|
 |JS/Room| [prototype.Room.structures.js](/src/prototypes/JavaScript/Room/prototype.Room.structures.js) |semperrabbit|extends Room prototype with structures, also caching them|
 |JS/Room| [Room.mineral.js](/src/prototypes/JavaScript/Room/Room.mineral.js) |Helam|extends Room prototype with a mineral property including caching|
-|JS/RoomObject| [Generalized target locking (with%20examples).js](/src/prototypes/JavaScript/RoomObject/Generalized%20target%20locking%20(with%20examples).js) |warinternal|target locking for actors with memory|
+|JS/RoomObject| [Generalized target locking (with examples).js](/src/prototypes/JavaScript/RoomObject/Generalized%20target%20locking%20(with%20examples).js) |warinternal|target locking for actors with memory|
 |JS/RoomObject| [lookForNear.js](/src/prototypes/JavaScript/RoomObject/lookForNear.js) |warinternal|extends RoomObject with .lookForNear()|
 |JS/RoomObject| [lookNear.js](/src/prototypes/JavaScript/RoomObject/lookNear.js) |warinternal|extends RoomObject with .lookNear()|
 |JS/RoomObject| [roomObjectSay.js](/src/prototypes/JavaScript/RoomObject/roomObjectSay.js) |mototroller| say() on RoomObject|
 |JS/RoomPosition| [findFirstInRange implementation for RoomPosition.js](/src/prototypes/JavaScript/RoomPosition/findFirstInRange%20implementation%20for%20RoomPosition.js) |proximo|findFirstInRange() for RoomPosition|
 |JS/RoomPosition| [prototype.RoomPosition.toString_fromString.js](/src/prototypes/JavaScript/RoomPosition/prototype.RoomPosition.toString_fromString.js) |semperrabbit|better string functions for RoomPosition|
 |JS/RoomVisual| [RawVisual Structures.js](/src/prototypes/JavaScript/RoomVisual/RawVisual%20Structures.js) |ags131|RoomVisuals for all structures|
-|JS/Source| [Memory for Source (or%20other%20objects).js](/src/prototypes/JavaScript/Source/Memory%20for%20Source%20(or%20other%20objects).js) |w4rl0ck|adds memory to Source object|
+|JS/Source| [Memory for Source (or other objects).js](/src/prototypes/JavaScript/Source/Memory%20for%20Source%20(or%20other%20objects).js) |w4rl0ck|adds memory to Source object|
 |JS/StructureLink| [modified link.transferEnergy to prevent redundant multiple sends to the same target.js](/src/prototypes/JavaScript/StructureLink/modified%20link.transferEnergy%20to%20prevent%20redundant%20multiple%20sends%20to%20the%20same%20target.js) |helam| optimized StructureLink.transferEnergy()|
 || [DefineProperty Tutorial.js](/src/prototypes/JavaScript/DefineProperty%20Tutorial.js) |helam|see name|
 || [functionMiddleware.js](/src/prototypes/JavaScript/functionMiddleware.js) |warinternal|Loops over only functions on the prototype and passes them to a callback function|
