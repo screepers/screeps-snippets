@@ -70,6 +70,7 @@ There will be a voting system installed for automatically merging PRs once this 
 || [Memory segment emulation.js](/src/globals/Memory%20segment%20emulation.js) |dissi|segment emulator|
 || [queueAction() system.js](/src/globals/queueAction()%20system.js) |Helam|queue actions|
 || [upkeep_costs.js](/src/globals/upkeep_costs.js) |warinternal| constants for upkeep of decaying structures|
+|| [tool.marketCalculator.js](/src/globals/JavaScript/tool.marketCalculator.js) | BoosterKevin | help make decision about producing commodity [documentation](https://github.com/RaymondJiangkw/screeps_script/blob/master/src/tool/marketCalculator/README.md) |
 
 ### logging
   
