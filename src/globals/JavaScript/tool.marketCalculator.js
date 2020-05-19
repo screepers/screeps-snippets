@@ -2,6 +2,7 @@
  * Market Calculator
  * In this class, it should be noticed that all these functions will ignore the error resulted from the parameters as much as possible.
  * Usage: write require("tool.marketCalculator") in your main.js.
+ * Documentation: https://github.com/RaymondJiangkw/screeps_script/blob/master/src/tool/marketCalculator/README.md
  */
 /**
  * @typedef {Object} CommodityComponent Object used to describe components.
