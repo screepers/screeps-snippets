@@ -29,9 +29,6 @@
  * @property {Object} bestCommodity.buy Resources you need to buy, which has the format of [resourceType]:[amount].
  */
 
- /**
-  * @class
-  */
 (function(){
     const PLACE_HOLDER                  = "_";
     const ERR_MAX_ITERATION_REACHED     = 1;
@@ -399,7 +396,5 @@
         }
     }
     // Mount to the global object.
-    // You can mount to Game object.
     global.MarketCal = MC;
-//  Game.MarketCal = MC;
 })();
