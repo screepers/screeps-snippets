@@ -2,10 +2,11 @@
 
 /**
  * Posted 10 may 2018 by @saruss
- * 
+ *
  * Code for calculating the minCut in a room, written by Saruss
  * adapted (for Typescript by Chobobobo , is it somewhere?)
  * some readability added by Chobobobo @typescript was included here
+ * (15Aug2019) Updated Game.map.getTerrainAt to Game.map.getRoomTerrain method -Shibdib
  */
 
 const UNWALKABLE = -1;
@@ -19,76 +20,77 @@ const EXIT = 3;
  * An Array with Terrain information: -1 not usable, 2 Sink (Leads to Exit)
  */
 function room_2d_array(roomname,bounds={x1:0,y1:0,x2:49,y2:49}) {
-        let room_2d=Array(50).fill(0).map( x=>Array(50).fill(UNWALKABLE)); // Array for room tiles
-        let i=bounds.x1;const imax=bounds.x2;
-        let j=bounds.y1;const jmax=bounds.y2;
-        for (;i<=imax;i++) {
-            j=bounds.y1;
-            for(;j<=jmax;j++) {
-                if (Game.map.getTerrainAt(i,j,roomname)!='wall'){
-                    room_2d[i][j]=NORMAL; // mark unwalkable
-                    if (i===bounds.x1 || j===bounds.y1 || i===bounds.x2 || j===bounds.y2)
-                        room_2d[i][j]=TO_EXIT; // Sink Tiles mark from given bounds
-                    if (i===0 || j===0 || i===49 || j===49)
-                        room_2d[i][j]=EXIT; // Exit Tiles mark
-                    
-                }    
+    let room_2d=Array(50).fill(0).map( x=>Array(50).fill(UNWALKABLE)); // Array for room tiles
+    let i=bounds.x1;const imax=bounds.x2;
+    let j=bounds.y1;const jmax=bounds.y2;
+    const terrain = Game.map.getRoomTerrain(roomname);
+    for (;i<=imax;i++) {
+        j=bounds.y1;
+        for(;j<=jmax;j++) {
+            if (terrain.get(i,j) !== TERRAIN_MASK_WALL){
+                room_2d[i][j]=NORMAL; // mark unwalkable
+                if (i===bounds.x1 || j===bounds.y1 || i===bounds.x2 || j===bounds.y2)
+                    room_2d[i][j]=TO_EXIT; // Sink Tiles mark from given bounds
+                if (i===0 || j===0 || i===49 || j===49)
+                    room_2d[i][j]=EXIT; // Exit Tiles mark
+
             }
         }
-        
-        /* OLD CODE
-        let terrain_array=room.lookForAtArea(LOOK_TERRAIN,0,0,49,49,true);
-        if (terrain_array.length == 0) {
-            console.log('get_room_array in room_layout, look-at-for-Area Fehler');
+    }
+
+    /* OLD CODE
+    let terrain_array=room.lookForAtArea(LOOK_TERRAIN,0,0,49,49,true);
+    if (terrain_array.length == 0) {
+        console.log('get_room_array in room_layout, look-at-for-Area Fehler');
+    }
+    let terrain='';
+    let x_pos=0;
+    let y_pos=0;
+    let i=0;const imax=terrain_array.length;
+    for (;i<imax;i++) { // Filling array with terrain information
+        terrain=terrain_array[i];
+        x_pos=terrain.x;
+        y_pos=terrain.y;
+        if (terrain.terrain==='wall') {
+            room_2d[x_pos][y_pos]=-1; // mark unwalkable
+        } else {
+            if (x_pos===0 || y_pos===0 ||x_pos===49 || y_pos===49)
+                room_2d[x_pos][y_pos]=3; // Exit Tiles mark
         }
-        let terrain='';
-        let x_pos=0;
-        let y_pos=0;
-        let i=0;const imax=terrain_array.length;
-        for (;i<imax;i++) { // Filling array with terrain information
-            terrain=terrain_array[i];
-            x_pos=terrain.x;
-            y_pos=terrain.y;
-            if (terrain.terrain==='wall') {
-                room_2d[x_pos][y_pos]=-1; // mark unwalkable
-            } else { 
-                if (x_pos===0 || y_pos===0 ||x_pos===49 || y_pos===49)
-                    room_2d[x_pos][y_pos]=3; // Exit Tiles mark
-            }
-        }
-        ENDE OLD CODE */
-        
-        // Marks tiles Near Exits for sink- where you cannot build wall/rampart
-        let y=1;const max=49;
-        for(;y<max;y++) { 
-            if (room_2d[0][y-1]===EXIT) room_2d[1][y]=TO_EXIT;
-            if (room_2d[0][y]===EXIT) room_2d[1][y]=TO_EXIT;
-            if (room_2d[0][y+1]===EXIT) room_2d[1][y]=TO_EXIT;
-            if (room_2d[49][y-1]===EXIT) room_2d[48][y]=TO_EXIT;
-            if (room_2d[49][y]===EXIT) room_2d[48][y]=TO_EXIT;
-            if (room_2d[49][y+1]===EXIT) room_2d[48][y]=TO_EXIT;
-        }
-        let x=1;
-        for(;x<max;x++) { 
-            if (room_2d[x-1][0]===EXIT) room_2d[x][1]=TO_EXIT;
-            if (room_2d[x][0]===EXIT) room_2d[x][1]=TO_EXIT;
-            if (room_2d[x+1][0]===EXIT) room_2d[x][1]=TO_EXIT;
-            if (room_2d[x-1][49]===EXIT) room_2d[x][48]=TO_EXIT;
-            if (room_2d[x][49]===EXIT) room_2d[x][48]=TO_EXIT;
-            if (room_2d[x+1][49]===EXIT) room_2d[x][48]=TO_EXIT;
-        }
-        // mark Border Tiles as not usable 
-        y=1;
-        for(;y<max;y++) { 
-            room_2d[0][y]==UNWALKABLE;
-            room_2d[49][y]==UNWALKABLE;
-        }
-        x=1;
-        for(;x<max;x++) {
-            room_2d[x][0]==UNWALKABLE;
-            room_2d[x][49]==UNWALKABLE;
-        }
-        return room_2d;
+    }
+    ENDE OLD CODE */
+
+    // Marks tiles Near Exits for sink- where you cannot build wall/rampart
+    let y=1;const max=49;
+    for(;y<max;y++) {
+        if (room_2d[0][y-1]===EXIT) room_2d[1][y]=TO_EXIT;
+        if (room_2d[0][y]===EXIT) room_2d[1][y]=TO_EXIT;
+        if (room_2d[0][y+1]===EXIT) room_2d[1][y]=TO_EXIT;
+        if (room_2d[49][y-1]===EXIT) room_2d[48][y]=TO_EXIT;
+        if (room_2d[49][y]===EXIT) room_2d[48][y]=TO_EXIT;
+        if (room_2d[49][y+1]===EXIT) room_2d[48][y]=TO_EXIT;
+    }
+    let x=1;
+    for(;x<max;x++) {
+        if (room_2d[x-1][0]===EXIT) room_2d[x][1]=TO_EXIT;
+        if (room_2d[x][0]===EXIT) room_2d[x][1]=TO_EXIT;
+        if (room_2d[x+1][0]===EXIT) room_2d[x][1]=TO_EXIT;
+        if (room_2d[x-1][49]===EXIT) room_2d[x][48]=TO_EXIT;
+        if (room_2d[x][49]===EXIT) room_2d[x][48]=TO_EXIT;
+        if (room_2d[x+1][49]===EXIT) room_2d[x][48]=TO_EXIT;
+    }
+    // mark Border Tiles as not usable
+    y=1;
+    for(;y<max;y++) {
+        room_2d[0][y]==UNWALKABLE;
+        room_2d[49][y]==UNWALKABLE;
+    }
+    x=1;
+    for(;x<max;x++) {
+        room_2d[x][0]==UNWALKABLE;
+        room_2d[x][49]==UNWALKABLE;
+    }
+    return room_2d;
 }
 
 function Graph(menge_v) {
@@ -100,7 +102,7 @@ function Graph(menge_v) {
         this.edges[v].push({v: u, r: this.edges[u].length-1, c:0, f:0}); // reverse Edge for Residal Graph
     };
     this.Bfs=function(s, t) { // calculates Level Graph and if theres a path from s to t
-        if (t>=this.v) 
+        if (t>=this.v)
             return false;
         this.level.fill(-1); // reset old levels
         this.level[s]=0;
@@ -123,7 +125,7 @@ function Graph(menge_v) {
     };
     // DFS like: send flow at along path from s->t recursivly while increasing the level of the visited vertices by one
     // u vertex, f flow on path, t =Sink , c Array, c[i] saves the count of edges explored from vertex i
-    this.Dfsflow = function(u,f,t,c) { 
+    this.Dfsflow = function(u,f,t,c) {
         if (u===t) // Sink reached , aboard recursion
             return f;
         let edge=null;
@@ -162,7 +164,7 @@ function Graph(menge_v) {
                         this.level[edge.v] =  1;
                         q.push(edge.v);
                     }
-                } 
+                }
                 if (edge.f===edge.c && edge.c>0) { // blocking edge -> could be in min cut
                     edge.u=u;
                     e_in_cut.push(edge);
@@ -200,22 +202,22 @@ var util_mincut={
     // rects have top-left/bot_right Coordinates {x1,y1,x2,y2}
     create_graph: function(roomname,rect,bounds) {
         let room_array=room_2d_array(roomname,bounds); // An Array with Terrain information: -1 not usable, 2 Sink (Leads to Exit)
-        // For all Rectangles, set edges as source (to protect area) and area as unused 
+        // For all Rectangles, set edges as source (to protect area) and area as unused
         let r=null;
         let j=0;const jmax=rect.length;
         // Check bounds
-         if (bounds.x1 >= bounds.x2 || bounds.y1 >= bounds.y2 ||
-              bounds.x1 < 0 || bounds.y1 < 0 || bounds.x2 > 49 || bounds.y2 > 49) 
-              return console.log('ERROR: Invalid bounds', JSON.stringify(bounds));
+        if (bounds.x1 >= bounds.x2 || bounds.y1 >= bounds.y2 ||
+            bounds.x1 < 0 || bounds.y1 < 0 || bounds.x2 > 49 || bounds.y2 > 49)
+            return console.log('ERROR: Invalid bounds', JSON.stringify(bounds));
         for (;j<jmax;j++) {
             r=rect[j];
             // Test sizes of rectangles
             if (r.x1 >= r.x2 || r.y1 >= r.y2) {
-              return console.log('ERROR: Rectangle Nr.',j, JSON.stringify(r), 'invalid.');
+                return console.log('ERROR: Rectangle Nr.',j, JSON.stringify(r), 'invalid.');
             } else if (r.x1 < bounds.x1 || r.x2 > bounds.x2 || r.y1 < bounds.y1 || r.y2 > bounds.y2) {
-              return console.log('ERROR: Rectangle Nr.',j, JSON.stringify(r), 'out of bounds:', JSON.stringify(bounds));
+                return console.log('ERROR: Rectangle Nr.',j, JSON.stringify(r), 'out of bounds:', JSON.stringify(bounds));
             }
-            
+
             let x=r.x1;const maxx=r.x2+1;
             let y=r.y1;const maxy=r.y2+1;
             for (;x<maxx;x++) {
@@ -224,11 +226,11 @@ var util_mincut={
                     if (x===r.x1 || x===r.x2 || y===r.y1 || y===r.y2) {
                         if (room_array[x][y]===NORMAL)
                             room_array[x][y]=PROTECTED;
-                    } else 
+                    } else
                         room_array[x][y]=UNWALKABLE;
                 }
             }
-            
+
         }
         // ********************** Visualisierung
         if (true) {
@@ -236,7 +238,7 @@ var util_mincut={
             let x=0;let y=0;const max=50;
             for (;x<max;x++) {
                 y=0;
-                for (;y<max;y++) {    
+                for (;y<max;y++) {
                     if ( room_array[x][y] === UNWALKABLE )
                         visual.circle(x,y,{radius: 0.5, fill:'#111166',opacity: 0.3});
                     else if ( room_array[x][y] === NORMAL)
@@ -248,8 +250,8 @@ var util_mincut={
                 }
             }
         }
-        
-        // initialise graph 
+
+        // initialise graph
         // possible 2*50*50 +2 (st) Vertices (Walls etc set to unused later)
         let g=new Graph(2*50*50+2);
         let infini=Number.MAX_VALUE;
@@ -260,7 +262,7 @@ var util_mincut={
         // per exit Tile (2in array) Edge to sink with infini cap.
         // source is at  pos 2*50*50, sink at 2*50*50+1 as first tile is 0,0 => pos 0
         // top vertices <-> x,y : v=y*50+x   and x= v % 50  y=v/50 (math.floor?)
-        // bot vertices <-> top + 2500 
+        // bot vertices <-> top + 2500
         let source=2*50*50;
         let sink=2*50*50+1;
         let top=0;
@@ -274,24 +276,24 @@ var util_mincut={
                 top=y*50+x;
                 bot=top+2500;
                 if (room_array[x][y] === NORMAL) { // normal Tile
-                    g.New_edge(top,bot, 1 ); 
+                    g.New_edge(top,bot, 1 );
                     for (let i=0;i<8;i++) {
                         dx=x+surr[i][0];
                         dy=y+surr[i][1];
-                        if (room_array[dx][dy] === NORMAL || room_array[dx][dy] === TO_EXIT ) 
-                            g.New_edge(bot,dy*50+dx,infini); 
+                        if (room_array[dx][dy] === NORMAL || room_array[dx][dy] === TO_EXIT )
+                            g.New_edge(bot,dy*50+dx,infini);
                     }
                 } else if (room_array[x][y] === PROTECTED ) { // protected Tile
-                    g.New_edge(source,top, infini ); 
-                    g.New_edge(top,bot, 1 ); 
+                    g.New_edge(source,top, infini );
+                    g.New_edge(top,bot, 1 );
                     for (let i=0;i<8;i++) {
                         dx=x+surr[i][0];
                         dy=y+surr[i][1];
-                        if (room_array[dx][dy] === NORMAL || room_array[dx][dy] === TO_EXIT) 
-                            g.New_edge(bot,dy*50+dx,infini); 
+                        if (room_array[dx][dy] === NORMAL || room_array[dx][dy] === TO_EXIT)
+                            g.New_edge(bot,dy*50+dx,infini);
                     }
                 } else if (room_array[x][y] === TO_EXIT) { // near Exit
-                    g.New_edge(top,sink, infini ); 
+                    g.New_edge(top,sink, infini );
                 }
             }
         } // graph finished
@@ -301,17 +303,17 @@ var util_mincut={
         // Get Terrain and set all cut-tiles as unwalkable
         let room_array=room_2d_array(roomname);
         for (let i=cut_tiles_array.length-1;i>=0;i--) {
-                room_array[cut_tiles_array[i].x][cut_tiles_array[i].y]=UNWALKABLE;
+            room_array[cut_tiles_array[i].x][cut_tiles_array[i].y]=UNWALKABLE;
         }
         // Floodfill from exits: save exit tiles in array and do a bfs-like search
         let unvisited_pos=[];
         let y=0;const max=49;
-        for(;y<max;y++) { 
+        for(;y<max;y++) {
             if (room_array[1][y]===TO_EXIT) unvisited_pos.push(50*y+1)
             if (room_array[48][y]===TO_EXIT) unvisited_pos.push(50*y+48)
         }
         let x=0;
-        for(;x<max;x++) { 
+        for(;x<max;x++) {
             if (room_array[x][1]===TO_EXIT) unvisited_pos.push(50+x)
             if (room_array[x][48]===TO_EXIT) unvisited_pos.push(2400+x) // 50*48=2400
         }
@@ -358,7 +360,7 @@ var util_mincut={
         if (verbose) console.log('NUmber of Tiles in Cut:',count);
         let positions=[];
         if (count > 0) {
-            let cut_edges=graph.Bfsthecut(source); 
+            let cut_edges=graph.Bfsthecut(source);
             // Get Positions from Edge
             let u,x,y;
             let i=0;const imax=cut_edges.length;
@@ -369,7 +371,7 @@ var util_mincut={
                 positions.push({"x":x,"y":y});
             }
         }
-        // if bounds are given, 
+        // if bounds are given,
         // try to dectect islands of walkable tiles, which are not conntected to the exits, and delete them from the cut-tiles
         let whole_room=(bounds.x1==0 && bounds.y1==0 && bounds.x2==49 && bounds.y2==49);
         if (positions.length > 0 && !whole_room)
@@ -378,12 +380,12 @@ var util_mincut={
         if (true && positions.length > 0) {
             let visual=new RoomVisual(roomname);
             for (let i=positions.length-1;i>=0;i--) {
-                visual.circle(positions[i].x,positions[i].y,{radius: 0.5, fill:'#ff7722',opacity: 0.9});    
+                visual.circle(positions[i].x,positions[i].y,{radius: 0.5, fill:'#ff7722',opacity: 0.9});
             }
         }
         return positions;
     },
-     // Example function: demonstrates how to get a min cut with 2 rectangles, which define a "to protect" area
+    // Example function: demonstrates how to get a min cut with 2 rectangles, which define a "to protect" area
     test: function(roomname) {
         //let room=Game.rooms[roomname];
         //if (!room)
@@ -403,7 +405,7 @@ var util_mincut={
         console.log('Needed',cpu,' cpu time');
         return 'Finished';
     },
-    
+
 }
 
 module.exports =  util_mincut;

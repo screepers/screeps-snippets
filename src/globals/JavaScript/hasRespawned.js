@@ -4,7 +4,7 @@
  * global.hasRespawned()
  * 
  * @author:  SemperRabbit
- * @version: 1.0
+ * @version: 1.1
  * @date:    180331
  * @return:  boolean whether this is the first tick after a respawn or not
  * 
@@ -22,37 +22,45 @@
  *
  * The only time that all of these cases are true, is the first tick of a respawn.
  * If all of these are true, you have respawned.
+ * 
+ * v1.1 (by qnz): - fixed a condition where room.controller.safeMode can be SAFE_MODE_DURATION too
+ *                - improved performance of creep number check (https://jsperf.com/isempty-vs-isemptyobject/23)
  */global.hasRespawned = function hasRespawned(){
-// check for multiple calls on same tick    
-    if(Memory.respawnTick && Memory.respawnTick === Game.time)
+    // check for multiple calls on same tick    
+    if(Memory.respawnTick && Memory.respawnTick === Game.time) {
         return true;
+    }
 
-// server reset or sim
-    if(Game.time === 0){
+    // server reset or sim
+    if(Game.time === 0) {
         Memory.respawnTick = Game.time;
         return true;
     }
 
-// check for 0 creeps
-    if(Object.keys(Game.creeps).length)
+    // check for 0 creeps
+    for(const creepName in Game.creeps) {
         return false;
+    }
 
-// check for only 1 room
-    var rNames = Object.keys(Game.rooms);
-    if(rNames.length !== 1)
+    // check for only 1 room
+    const rNames = Object.keys(Game.rooms);
+    if(rNames.length !== 1) {
         return false;
+    }
 
-// check for controller, progress and safe mode
-    var room = Game.rooms[rNames[0]];
+    // check for controller, progress and safe mode
+    const room = Game.rooms[rNames[0]];
     if(!room.controller || !room.controller.my || room.controller.level !== 1 || room.controller.progress ||
-       !room.controller.safeMode || room.controller.safeMode !== SAFE_MODE_DURATION-1)
+       !room.controller.safeMode || room.controller.safeMode <= SAFE_MODE_DURATION-1) {
         return false;
+    }
 
-// check for 1 spawn
-    if(Object.keys(Game.spawns).length !== 1)
+    // check for 1 spawn
+    if(Object.keys(Game.spawns).length !== 1) {
         return false;
+    }
 
-// if all cases point to a respawn, you've respawned
+    // if all cases point to a respawn, you've respawned
     Memory.respawnTick = Game.time;
     return true;
 }
