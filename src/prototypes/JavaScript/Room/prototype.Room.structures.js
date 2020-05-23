@@ -1,8 +1,8 @@
 /* Posted March 10th, 2018 by @semperrabbit*/
 /**
-Module: prototype.Room.structures v1.7
+Module: prototype.Room.structures v1.8
 Author: SemperRabbit
-Date:   20180309-13,0411
+Date:   20180309-13,20180411,20200524
 Usage:  require('prototype.Room.structures');
 
 This module will provide structure caching and extends the Room
@@ -24,7 +24,8 @@ Changelog:
 1.5: Added CPU Profiling information for Room.prototype._checkRoomCache() starting on line 47
 1.6: Added tick check for per-tick caching, in preperation for the potential "persistent Game
         object" update. Edits on lines 73, 77-83, 95, 99-105
-1.7; Added Factory support (line 46)
+1.7: Added Factory support (line 46)
+1.8: Made Factory support permanant and cleaner
 */
 
 var roomStructures           = {};
@@ -41,10 +42,8 @@ const multipleList = [
 
 const singleList = [
     STRUCTURE_OBSERVER,     STRUCTURE_POWER_SPAWN,  STRUCTURE_EXTRACTOR,	STRUCTURE_NUKER,
-    //STRUCTURE_TERMINAL,   STRUCTURE_CONTROLLER,   STRUCTURE_STORAGE,
+    STRUCTURE_FACTORY,		//STRUCTURE_TERMINAL,   STRUCTURE_CONTROLLER,   STRUCTURE_STORAGE,
 ];
-
-if(global.STRUCTURE_FACTORY !== undefined) singleList.push(STRUCTURE_FACTORY);
 
 function getCacheExpiration(){
     return CACHE_TIMEOUT + Math.round((Math.random()*CACHE_OFFSET*2)-CACHE_OFFSET);
