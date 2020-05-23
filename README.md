@@ -20,7 +20,7 @@ Each category is further divided into various languages
 
 Other languages are welcome (e.g. kotalin) if people want to share their code. Simply throw the file in a new language folder in the primary category.
 
-There will be a voting system installed for automatically merging PRs once this is further established. More details to follow...
+For pull requests, we use [GitConsensus](https://www.gitconsensus.com/) to allow the community to vote whether to merge or not. Currently, any PR with 6+ votes and 75% of votes being upvotes will be merged 10 days after the final action on the PR. Quick merges occur immediately after 18 upvotes. See the repo's [.gitconsensus.yaml](./.gitconsensus.yaml) for all the current rules.
 
 ## Index of all current snippets
 
