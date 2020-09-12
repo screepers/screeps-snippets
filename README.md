@@ -112,6 +112,7 @@ For pull requests, we use [GitConsensus](https://www.gitconsensus.com/) to allow
 |TS| [Creep intent tracker.ts](/src/misc/TypeScript/Creep%20intent%20tracker.ts) |unfleshedone|intent tracker implementation|
 |TS| [moving.average.ts](/src/misc/TypeScript/moving.average.ts) |unsleshedone|moving average implementation|
 |TS| [Typescript roomScan.ts](/src/misc/TypeScript/Typescript%20roomScan.ts) |crzytrane|room scanner?|
+|TS| [Typescript openingRampartsForAllies.ts](/src/misc/TypeScript/openingRampartsForAllies.ts) |Robalian|A function for opening ramparts for allied creeps moving through a room|
 || [migrate room to sim.md](/src/misc/migrate%20room%20to%20sim.md) |semperrabbit|how to migrate room to sim|
 || [screeps body calculator.md](/src/misc/screeps%20body%20calculator.md) |nitroevil|link to creep calculator|
 |KT| [DistanceTransform](src/misc/Kotlin/DistanceTransform/) |Vipo|Algoritm for finding open areas in rooms|
