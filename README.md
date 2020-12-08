@@ -145,3 +145,5 @@ For pull requests, we use [GitConsensus](https://www.gitconsensus.com/) to allow
 || [DefineProperty Tutorial.js](/src/prototypes/JavaScript/DefineProperty%20Tutorial.js) |helam|see name|
 || [functionMiddleware.js](/src/prototypes/JavaScript/functionMiddleware.js) |warinternal|Loops over only functions on the prototype and passes them to a callback function|
 || [Monkey Patching Tutorial.js](/src/prototypes/JavaScript/Monkey%20Patching%20Tutorial.js) |helam|see name|
+|JS/Creep| [excuseMe.js](/src/prototypes/JavaScript/Creep/excuseMe.js) |Robalian|A set of functions that makes creeps tell other creeps to get out of the way using creep memory|
+|TS| [excuseMe.ts](/src/prototypes/Typescript/excuseMe.ts) |Robalian|A set of functions that makes creeps tell other creeps to get out of the way using creep memory|
