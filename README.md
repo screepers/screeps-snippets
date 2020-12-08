@@ -118,7 +118,7 @@ For pull requests, we use [GitConsensus](https://www.gitconsensus.com/) to allow
 || [screeps body calculator.md](/src/misc/screeps%20body%20calculator.md) |nitroevil|link to creep calculator|
 |KT| [DistanceTransform](src/misc/Kotlin/DistanceTransform/) |Vipo|Algoritm for finding open areas in rooms|
 |KT| [MinCut.kt](/src/misc/Kotlin/MinCut/) | Vipo | Code for calculating the minCut in a room |
-|KT| [VipoOS](/src/misc/Kotlin/VipoOs/) |Vipo|Example of a tiny OS solution for Screeps, written in Kotlin|
+|KT| [VipoOS](/src/misc/Kotlin/VipoOS/) |Vipo|Example of a tiny OS solution for Screeps, written in Kotlin|
 
 ### prototypes
   
