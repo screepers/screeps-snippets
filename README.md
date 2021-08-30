@@ -84,7 +84,6 @@ For pull requests, we use [GitConsensus](https://www.gitconsensus.com/) to allow
 | folder | name |author |Description                    |
 | ----- |---------| -------|----------------------- |
 |JS| [actually commented evil tower code.js](/src/misc/JavaScript/actually%20commented%20evil%20tower%20code.js) | daboross| lodash chain tower code|
-|JS| [bunkerLayoutsHumanReadable.js](/src/misc/JavaScript/bunkerLayoutsHumanReadable.js) |sparr| readable bunker layouts sample|
 |JS| [Calculate Cost of a Mine.js](/src/misc/JavaScript/Calculate%20Cost%20of%20a%20Mine.js) |Gankdalf| mining cost calculations|
 |JS| [Check if room is a source keeper room.js](/src/misc/JavaScript/Check%20if%20room%20is%20a%20source%20keeper%20room.js) |issacar|check if room is a source keeper room|
 |JS| [colors.js](/src/misc/JavaScript/colors.js) |dissi| visualize percentage with colors|
@@ -114,6 +113,7 @@ For pull requests, we use [GitConsensus](https://www.gitconsensus.com/) to allow
 |TS| [Creep intent tracker.ts](/src/misc/TypeScript/Creep%20intent%20tracker.ts) |unfleshedone|intent tracker implementation|
 |TS| [moving.average.ts](/src/misc/TypeScript/moving.average.ts) |unsleshedone|moving average implementation|
 |TS| [Typescript roomScan.ts](/src/misc/TypeScript/Typescript%20roomScan.ts) |crzytrane|room scanner?|
+|TS| [BunkerLayout.ts](/src/misc/TypeScript/BunkerLayout.ts) |sparr| parse human-readable readable bunker layout strings|
 || [migrate room to sim.md](/src/misc/migrate%20room%20to%20sim.md) |semperrabbit|how to migrate room to sim|
 || [screeps body calculator.md](/src/misc/screeps%20body%20calculator.md) |nitroevil|link to creep calculator|
 |KT| [DistanceTransform](src/misc/Kotlin/DistanceTransform/) |Vipo|Algoritm for finding open areas in rooms|
