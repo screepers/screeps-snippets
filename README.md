@@ -46,6 +46,7 @@ For pull requests, we use [GitConsensus](https://www.gitconsensus.com/) to allow
 |JS| [util.inject.RoomTracker.js](/src/client-abuse/JavaScript/util.inject.RoomTracker.js) |semperrabbit|Allows for the retrieval of rooms currently being viewed in the client from in-game code|
 |JS| [util.inject.RoomViewNotifier.js](/src/client-abuse/JavaScript/util.inject.RoomViewNotifier.js) |semperrabbit| adds currently viewed room to memory |
 |JS| [util.inject.TEMPLATE.js](/src/client-abuse/JavaScript/util.inject.TEMPLATE.js) |semperrabbit|template for injections|
+|TS| [injectCreepSay.ts](/src/client-abuse/TypeScript/injectCreepSay.ts) |poot|Add creep say input to sidebar|
 
 ### globals
   
