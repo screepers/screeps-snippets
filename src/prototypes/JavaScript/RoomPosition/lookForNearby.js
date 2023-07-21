@@ -1,3 +1,5 @@
+// Modified warinternals old roomObject submission to fall under pos as that just made more sense continuinty wise.
+
 /**
  * warinternal's Original Code --
  * Shorthand for lookForAtArea around a room position modified by Shibdib from a roomObject to roomPosition
